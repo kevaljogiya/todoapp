@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+form {
+    margin: 20px 0;
+}
+
+form input {
+    padding: 10px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+form button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td a {
+    text-decoration: none;
+    color: white;
+}
+
+/* button {
+    background
+} */
+</style>
+<body>
+    <center>
+    <h1>TODO LIST</h1>
+
+    <form action="/addData" method="post">
+        <input type="text" placeholder="Enter Your Name" name="name"/>
+        <input type="text" placeholder="Enter Your mobile" name="mobile"/>
+        <button type="submit">Submit</button>
+    </form>
+    <table border="1" width="100%">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>mobile</th>
+            <th colspan="2">Action</th>
+        </thead>
+        <tbody><br><br>
+            <% students.map((e,i)=>{%>                                                                                                      
+                <tr>
+                    <td><%= e.id %></td>
+                    <td><%= e.name %></td>
+                    <td><%= e.mobile %></td>
+                    <td><button><a href="/editData/<%=e.id%>">Edit</a></button></td>
+                    <td><button><a href="/deleteData?id=<%=e.id%>">Delete</a></button></td>
+                </tr>
+          <%})%>
+        </center>
+        </tbody>
+    </table>
+</body>
+</html>
